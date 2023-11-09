@@ -41,12 +41,14 @@ try:
         back_from_function = get_fruityvice_data(fruit_choice)
         streamlit.dataframe(back_from_function)
         streamlit.stop()
+
+streamlit.stop()
        
 # dont run anything past here while we troubleshoot
 # streamlit.stop()
 
 # import snowflake.connector
-streamlit.stop()
+
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
